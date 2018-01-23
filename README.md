@@ -50,3 +50,10 @@ Here's an example code for loading this data visualization:
   $('body').append(script);
 ```
 
+## Example
+
+Clone this repository and open index.html in browser.
+
+## Suggestions
+
+Please send me an email: dnprock@gmail.com.
