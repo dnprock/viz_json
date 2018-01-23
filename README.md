@@ -13,4 +13,40 @@ It's a way to organize data visualization in JSON format. Developers typically s
 
 ## Drawbacks
 
-JSON format does come with a few drawbacks. It's hard to directly edit JavaScript, CSS, HTML. An editor like vida.io[https://vida.io] can help. Other suggestions? Please send me an email: dnprock@gmail.com.
+JSON format does come with a few drawbacks. It's hard to directly edit JavaScript, CSS, HTML. An editor like vida.io (https://vida.io) can help. Other suggestions? Please send me an email: dnprock@gmail.com.
+
+## Format
+
+Here's my format proposal:
+
+```javascript
+  var doc_json = {
+    "javascript": "",
+    "stylesheet": "",
+    "html": "",
+    "data": "",
+  }
+```
+
+Here's an example code for loading this data visualization:
+
+```javascript
+  window.config = {};
+  window.data = doc_json.data;
+
+  var properties = doc_json.properties;
+
+  properties.forEach(function(p) {
+    window.config[p.name] = p.value;
+  });
+
+  $('#canvas').append($(doc_json.html));
+
+  // load CSS
+  var css = $('<style>' + doc_json.stylesheet + '</style>');
+  $('body').append(css);
+
+  var script = $('<script type="text/javascript">' + doc_json.javascript +'</script>');
+  $('body').append(script);
+```
+
